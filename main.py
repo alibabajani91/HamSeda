@@ -1,9 +1,16 @@
 import requests
+import sqlite3
 from flask import *
 
 
+app = Flask(__name__)
+conn = sqlite3.connect("database.db")
+cur = conn.cursor()
+
+
+@app.route("/")
 def home():
-    pass
+    return render_template("home.html")
 
 def login():
     pass
@@ -16,3 +23,5 @@ def sign_up():
 
 def send_message():
     pass
+
+app.run(debug=True)
