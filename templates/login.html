@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>HamSeda | Home</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    </head>
+    <body>
+        <div class="header">
+                <a href="/"><button class="header-button"> home </button></a>
+                |
+                <a href="/login"><button class="header-button"> login </button></a>
+                |
+                <a href="/logout"><button class="header-button"> logout </button></a>
+                |
+                <a href="/send_message"><button class="header-button"> send a message </button></a>
+        </div>
+        <hr>
+        <form action="" method="post" class="login">
+            <span>username:</span>
+            <input type="text" name="username" class="fields">
+            <br>
+            <span>password:</span>
+            <input type="password" name="username" class="fields">
+            <br>
+            <input type="submit" value="submit" class="fields">
+        </form>
+    </body>
+</html>

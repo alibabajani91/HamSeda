@@ -12,8 +12,9 @@ cur = conn.cursor()
 def home():
     return render_template("home.html")
 
+@app.route("/login", methods=["post","get"])
 def login():
-    pass
+    return render_template("login.html")
 
 def logout():
     pass

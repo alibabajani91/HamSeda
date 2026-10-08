@@ -8,4 +8,4 @@ it has been written with python,flask,html and css
 - [ ] make the **login** and **logout** conditional
 - [ ] add some styles
 - [ ] make font.css file
-- [ ] there's a mistake about button's links. fix it.
+- [x] there's a mistake about button's links. fix it.
