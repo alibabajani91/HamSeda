@@ -9,3 +9,4 @@ it has been written with python,flask,html and css
 - [ ] add some styles
 - [ ] make font.css file
 - [x] there's a mistake about button's links. fix it.
+- [ ] save the passwords with hashing
