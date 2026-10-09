@@ -6,12 +6,15 @@
     <body>
         <div class="header">
                 <a href="/"><button class="header-button"> home </button></a>
+                {% if session.get('id') %}
+                |
+                <a href="/logout"><button class="header-button"> logout </button></a>
+                {% else %}
                 |
                 <a href="/login"><button class="header-button"> login </button></a>
                 |
-                <a href="/logout"><button class="header-button"> logout </button></a>
-                |
                 <a href="/sign_up"><button class="header-button"> sign up </button></a>
+                {% endif %}
                 |
                 <a href="/send_message"><button class="header-button"> send a message </button></a>
         </div>
