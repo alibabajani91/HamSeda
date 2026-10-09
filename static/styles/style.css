@@ -13,3 +13,8 @@
 .fields{
     margin: 7px;
 }
+.message{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
