@@ -37,7 +37,8 @@ def sign_up():
     if request.method == "GET":
         return render_template("sign_up.html") 
     else:
-        cur.execute("INSERT INTO users (username, password) VALUES(?,?)",(request.form["username"],request.form["password"]))
+        cur.execute("INSERT INTO users (username, password) VALUES(?,?)",
+                    (request.form["username"],request.form["password"]))
         conn.commit()
         return redirect("/login")
 
