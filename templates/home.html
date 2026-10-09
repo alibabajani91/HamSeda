@@ -20,5 +20,8 @@
         </div>
         <hr>
         <h3 class="message">{{ msg }}</h3>
+        {% if session.get('username') %}
+            <h4 class="welcome">welcome, {{ session.get('username') }}</h4>
+        {% endif %}
     </body>
 </html>
