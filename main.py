@@ -24,7 +24,24 @@ def home():
 @app.route("/login", methods=["post","get"])
 def login():
     """login page of site"""
-    return render_template("login.html")
+    msg = ""
+    conn = sqlite3.connect("database.db",check_same_thread=False)
+    cur = conn.cursor()
+    if request.method == "POST" and "username" in request.form and "password" in request.form:
+        cur.execute("""SELECT * FROM users WHERE username=? AND password=?""",
+                    (request.form["username"],request.form["password"]))
+        account = cur.fetchone()
+        if account:
+            session["loggedin"] = True
+            session["id"] = account[0]
+            session['username'] = account[1]
+            msg = "loged in successfully!"
+            return render_template('home.html',msg=msg)
+        else:
+            msg = "incorrect username/password!"
+            return render_template('login.html',msg=msg)
+    else: 
+        return render_template("login.html",msg=msg)
 
 def logout():
     """this will logout a user"""
