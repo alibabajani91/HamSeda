@@ -20,6 +20,9 @@
         </div>
         <hr>
         <h3 class="message">{{ msg }}</h3>
+        {% if get_flashed_messages() %}
+        <h3 class="message">{{ get_flashed_messages()[0] }}</h3>
+        {% endif %}
         <form action="" method="post" class="login">
             <span>username:</span>
             <input type="text" name="username" class="fields">
