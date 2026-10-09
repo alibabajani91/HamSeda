@@ -18,17 +18,21 @@ CREATE TABLE IF NOT EXISTS users(
 
 @app.route("/")
 def home():
+    """home page of site"""
     return render_template("home.html")
 
 @app.route("/login", methods=["post","get"])
 def login():
+    """login page of site"""
     return render_template("login.html")
 
 def logout():
+    """this will logout a user"""
     pass
 
 @app.route("/sign_up", methods=["post","get"])
 def sign_up():
+    """it's the signup page"""
     global conn,cur
     if request.method == "GET":
         return render_template("sign_up.html") 
@@ -38,6 +42,6 @@ def sign_up():
         return redirect("/login")
 
 def send_message():
-    pass
+    """people can send message here"""
 
 app.run(debug=True)
