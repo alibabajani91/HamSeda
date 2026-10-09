@@ -43,9 +43,11 @@ def login():
     else: 
         return render_template("login.html",msg=msg)
 
+@app.route("/logout")
 def logout():
     """this will logout a user"""
-    pass
+    session.clear()
+    return redirect("/login")
 
 @app.route("/sign_up", methods=["post","get"])
 def sign_up():
