@@ -51,13 +51,17 @@ def logout():
 def sign_up():
     """it's the signup page"""
     global conn,cur
-    if request.method == "GET":
-        return render_template("sign_up.html") 
+    if request.method == "POST" and "username" in request.form and "password" in request.form:
+        user = cur.execute("SELECT id FROM users WHERE username = ?",(request.form["username"],)).fetchone()
+        if user:
+            return render_template("sign_up.html",msg="This username already exists!")
+        else:
+            cur.execute("INSERT INTO users (username, password) VALUES(?,?)",
+                        (request.form["username"],request.form["password"]))
+            conn.commit()
+            return render_template("login.html",msg="user created.please log in.")
     else:
-        cur.execute("INSERT INTO users (username, password) VALUES(?,?)",
-                    (request.form["username"],request.form["password"]))
-        conn.commit()
-        return redirect("/login")
+        return render_template("sign_up.html") 
 
 def send_message():
     """people can send message here"""
