@@ -59,7 +59,8 @@ def sign_up():
             cur.execute("INSERT INTO users (username, password) VALUES(?,?)",
                         (request.form["username"],request.form["password"]))
             conn.commit()
-            return render_template("login.html",msg="user created.please log in.")
+            flash("user created.please log in.")
+            return redirect("/login")
     else:
         return render_template("sign_up.html") 
 
